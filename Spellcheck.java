@@ -9,9 +9,9 @@ import java.util.TreeSet;
  */
 public class Spellcheck {
 
-	private static String word; // The word being spell checked
-	private static WordList wordList = new WordList(); // The list of words that the program checks user input against
-	private static TreeSet<String> possibleWords = new TreeSet<String>();
+	private static String word; 						// The word being spell checked
+	private static WordList wordList = new WordList();  // The list of words that the program checks user input against
+	private static TreeSet<String> possibleWords = new TreeSet<String>(); // The list of possible corrections to the user input
 
 	public static void main(String[] args) {
 
@@ -69,7 +69,6 @@ public class Spellcheck {
 	 */
 	public static TreeSet<String> deleteCharacter(String word, TreeSet<String> possibleWords) {
 
-		// StringBuilder builder = new StringBuilder(word);
 		for (int i = 0; i < word.length(); i++) {
 			StringBuilder builder = new StringBuilder(word);
 			builder.deleteCharAt(i);
@@ -79,7 +78,6 @@ public class Spellcheck {
 				possibleWords.add(wordCheck);
 			}
 		}
-
 		return possibleWords;
 	}
 
@@ -94,7 +92,6 @@ public class Spellcheck {
 	 */
 	public static TreeSet<String> addCharacter(String word, TreeSet<String> possibleWords) {
 
-		// StringBuilder builder = new StringBuilder(word);
 		for (int i = 0; i < word.length(); i++) {
 			for (char ch = 'a'; ch <= 'z'; ch++) {
 				StringBuilder builder = new StringBuilder(word);
@@ -106,7 +103,6 @@ public class Spellcheck {
 				}
 			}
 		}
-
 		return possibleWords;
 	}
 
@@ -121,13 +117,11 @@ public class Spellcheck {
 	 */
 	public static TreeSet<String> changeCharacter(String word, TreeSet<String> possibleWords) {
 
-		// StringBuilder builder = new StringBuilder(word);
 		for (int i = 0; i < word.length(); i++) {
 			StringBuilder builder = new StringBuilder(word);
 			for (char ch = 'a'; ch <= 'z'; ch++) {
 				builder.deleteCharAt(i);
 				builder.insert(i, ch);
-				// System.out.println(builder.toString());
 
 				String wordCheck = builder.toString();
 				if (wordList.contains(wordCheck)) {
@@ -135,7 +129,6 @@ public class Spellcheck {
 				}
 			}
 		}
-
 		return possibleWords;
 	}
 
@@ -150,7 +143,6 @@ public class Spellcheck {
 	 */
 	public static TreeSet<String> swapCharacter(String word, TreeSet<String> possibleWords) {
 
-		
 		for (int i = 0; i < word.length() - 1; i++) {
 			StringBuilder builder = new StringBuilder(word);
 			char first;
@@ -167,9 +159,7 @@ public class Spellcheck {
 			if (wordList.contains(wordCheck)) {
 				possibleWords.add(wordCheck);
 			}
-
 		}
-
 		return possibleWords;
 	}
 
