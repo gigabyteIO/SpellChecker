@@ -28,7 +28,7 @@ public class Spellcheck {
 		while (true) {
 			doSpellCheck();
 		}
-	}
+	} // End main()
 
 	/**
 	 * Prompts user for input, and runs spell check methods on the input.
@@ -46,7 +46,7 @@ public class Spellcheck {
 			insertSpace(word, possibleWords);
 			printPossibleWords(possibleWords);
 		}
-	}
+	} // End doSpellCheck()
 
 	/**
 	 * Prompts user for the input, changes input to lower case, and returns the
